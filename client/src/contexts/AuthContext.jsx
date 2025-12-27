@@ -2,6 +2,8 @@ import { createContext, useContext, useState, useEffect } from 'react'
 import { supabase, isSupabaseConfigured } from '../lib/supabase'
 import { authApi } from '../lib/api'
 
+const API_URL = import.meta.env.VITE_API_URL || '/api'
+
 const AuthContext = createContext({
     user: null,
     profile: null,
@@ -86,7 +88,6 @@ export function AuthProvider({ children }) {
             throw new Error('Authentication is not configured')
         }
 
-        // Sign up with email confirmation disabled option
         const { data, error } = await supabase.auth.signUp({
             email,
             password,
@@ -103,7 +104,7 @@ export function AuthProvider({ children }) {
         // If user was created, make them an editor
         if (data.user) {
             try {
-                await fetch('/api/auth/make-editor', {
+                await fetch(`${API_URL}/auth/make-editor`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -117,7 +118,6 @@ export function AuthProvider({ children }) {
 
         // Check if email confirmation is required
         if (data.user && !data.session) {
-            // Email confirmation required - throw a specific error
             throw new Error('Please check your email to confirm your account, then sign in.')
         }
 
@@ -142,7 +142,7 @@ export function AuthProvider({ children }) {
 
         if (!token) throw new Error('No session')
 
-        const response = await fetch('/api/auth/profile', {
+        const response = await fetch(`${API_URL}/auth/profile`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -169,7 +169,7 @@ export function AuthProvider({ children }) {
 
         if (!token) throw new Error('No session')
 
-        const response = await fetch('/api/auth/delete-account', {
+        const response = await fetch(`${API_URL}/auth/delete-account`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`
