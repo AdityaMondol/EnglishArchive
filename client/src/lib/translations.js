@@ -14,7 +14,7 @@ export const translations = {
 
         // Home page
         home: {
-            title: 'Notebook',
+            title: 'EnglishArchive',
             subtitle: 'Read and explore shared notes',
             search: 'Search notebooks...',
             noNotebooks: 'No notebooks yet',
@@ -144,7 +144,7 @@ export const translations = {
 
         // Home page
         home: {
-            title: 'নোটবুক',
+            title: 'ইংরেজি আর্কাইভ',
             subtitle: 'শেয়ার করা নোট পড়ুন এবং অন্বেষণ করুন',
             search: 'নোটবুক খুঁজুন...',
             noNotebooks: 'এখনো কোনো নোটবুক নেই',

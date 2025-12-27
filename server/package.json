@@ -1,7 +1,7 @@
 {
-    "name": "notebook-server",
+    "name": "englisharchive-server",
     "version": "1.0.0",
-    "description": "Backend server for Virtual Notebook application",
+    "description": "Backend server for EnglishArchive application",
     "main": "server.js",
     "type": "module",
     "scripts": {
