@@ -36,7 +36,6 @@ export default function Footer() {
                 <div className="mt-4 pt-4 border-t border-surface-200 dark:border-surface-800
           text-center text-sm text-surface-400">
                     <p className="flex items-center justify-center gap-1">
-                        {t.footer.madeWith} <Heart className="w-4 h-4 text-red-500 fill-red-500" />
                         {t.footer.forKnowledge}
                     </p>
                     <p className="mt-1">© {new Date().getFullYear()} {t.footer.rights}</p>
